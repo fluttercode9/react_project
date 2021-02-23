@@ -1,31 +1,49 @@
 import React, {Component} from 'react';
-import './SandwichIngredients.css'
+import classes from './SandwichIngredients.css';
 import PropTypes from 'prop-types';
+import Bread from './bread.svg';
 
-class Ingredient extends Component{
-    render() {
-    let ingredient = null;
-
-    switch (this.props.type){
-        case ('bread-bottom'):
-            ingredient = <div className='bread-bottom'></div>
-            break;
-        case ('bread-top'):
-            ingredient = (
-                <div className="bread-top">
-                    <div className='Seeds1'></div>
-                    <div className='Seeds2'></div>
-                </div> );
-            break;
-        case ('meat'):
-            ingredient = <div className='Meat'></div>;
-            break;  };
-    return ingredient;
-
-};
+class Ingredient extends Component {
+    render(){
+        let ingredient = null;
+ 
+        switch(this.props.type){
+            case('bread-bottom'):
+                ingredient = <div>
+                    <img className={classes.BreadBottom} src={Bread} alt="bread"></img>
+                </div>;
+                break;
+ 
+            case('bread-top'):
+                ingredient = <div className={classes.BreadTop}>
+                    <div className={classes.Seeds1}/>
+                    <div className={classes.Seeds2}/>
+                </div>;
+                break;
+ 
+            case('meat'):
+                ingredient = <div className={classes.Meat}/>;
+                break;
+ 
+            case('cheese'):
+                ingredient = <div className={classes.Cheese}/>;
+                break;
+ 
+            case('salad'):
+                ingredient = <div className={classes.Salad}/>;
+                break;
+ 
+            case('bacon'):
+                ingredient = <div className={classes.Bacon}/>;
+                break;
+            default:
+                ingredient=null;
+        }
+        return ingredient;
+    }
+ 
 }
 Ingredient.propTypes = {
     type: PropTypes.string.isRequired
-}
-
-export default ingredient
+};
+export default Ingredient;
