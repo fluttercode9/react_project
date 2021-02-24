@@ -2,15 +2,16 @@ import React, {Component} from 'react';
 import classes from './SandwichIngredients.css';
 import PropTypes from 'prop-types';
 import Bread from './bread.svg';
+import Meat from './meat.svg';
 
 class Ingredient extends Component {
     render(){
         let ingredient = null;
  
         switch(this.props.type){
-            case('bread-bottom'):
-                ingredient = <div>
-                    <img className={classes.BreadBottom} src={Bread} alt="bread"></img>
+            case('bread'):
+                ingredient = <div >
+                    <img className={classes.Ings } src={Bread} alt="bread"></img>
                 </div>;
                 break;
  
@@ -22,8 +23,10 @@ class Ingredient extends Component {
                 break;
  
             case('meat'):
-                ingredient = <div className={classes.Meat}/>;
-                break;
+                ingredient = <div>
+                <img className={classes.Ings} src={Meat} alt="meat"></img>
+            </div>;
+            break;
  
             case('cheese'):
                 ingredient = <div className={classes.Cheese}/>;
