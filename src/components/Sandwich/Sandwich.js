@@ -3,23 +3,38 @@ import classes from './Sandwich.css';
 import Ingredient from './SandwichIngredients/Ingredient';
 
 const sandwich = (props) => {
-    const transformedIngredients= Object.keys(props.ingredients).map(igKey => {
 
-        return  [...Array(props.ingredients[igKey])].map((_,i) => {
-            console.log(_,i);
-            // console.log(igKey);
-            // console.log("value of i :  " + i)
-           return <Ingredient key = {igKey + i} type={igKey}/>
-        })
+
+    let transformed = Object.keys(props.ingredients);
+
+    transformed = transformed.map((ingredient) => {
+        return [...Array(props.ingredients[ingredient])].map((_,i)=>{ return (
+            <Ingredient key={ingredient+i} type={ingredient}/>
+        )})
     })
 
 
-    return(
-        <div className={classes.Sandwich}>
-            {transformedIngredients}
+     transformed = transformed.reduce((a,b)=>{
+         return a.concat(b)
+     }, []);
 
-        </div>
-    );
+
+
+  if (transformed.length === 0) {
+      return <div> <p>Make your sandwich!</p></div>
+  }
+  else {
+        return(
+            <div className={classes.Sandwich}>
+             {transformed}
+             </div>
+             );
+
+  }
+
+    
 };
+
+
 
 export default sandwich;
