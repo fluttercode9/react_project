@@ -3,6 +3,8 @@ import classes from './SandwichIngredients.css';
 import PropTypes from 'prop-types';
 import Bread from './bread.svg';
 import Meat from './meat.svg';
+import Salad from './salad.svg';
+import Cheese from './cheese.svg'
 
 class Ingredient extends Component {
     render(){
@@ -29,11 +31,15 @@ class Ingredient extends Component {
             break;
  
             case('cheese'):
-                ingredient = <div className={classes.Cheese}/>;
-                break;
+            ingredient = <div>
+            <img className={classes.Ings} src={Cheese} alt="cheese"></img>
+            </div>;
+            break;
  
             case('salad'):
-                ingredient = <div className={classes.Salad}/>;
+            ingredient = <div>
+            <img className={classes.Ings} src={Salad} alt="salad"></img>
+            </div>;
                 break;
  
             case('bacon'):

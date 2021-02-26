@@ -21,7 +21,7 @@ const sandwich = (props) => {
 
 
   if (transformed.length === 0) {
-      return <div> <p>Make your sandwich!</p></div>
+      return <div className = {classes.Make}> <p >Make your sandwich!</p></div>
   }
   else {
         return(
